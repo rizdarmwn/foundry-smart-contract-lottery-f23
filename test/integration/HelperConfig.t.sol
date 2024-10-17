@@ -12,23 +12,15 @@ contract HelperConfigTest is Test, CodeConstants {
     }
 
     function testGetConfigByChainIdAnvil() public {
-        HelperConfig.NetworkConfig memory networkConfig = helperConfig
-            .getOrCreateAnvilEthConfig();
+        HelperConfig.NetworkConfig memory networkConfig = helperConfig.getOrCreateAnvilEthConfig();
 
-        assert(
-            helperConfig.getConfigByChainId(LOCAL_CHAIN_ID).account ==
-                networkConfig.account
-        );
+        assert(helperConfig.getConfigByChainId(LOCAL_CHAIN_ID).account == networkConfig.account);
     }
 
     function testGetConfigByChainIdSepolia() public {
-        HelperConfig.NetworkConfig memory networkConfig = helperConfig
-            .getSepoliaEthConfig();
+        HelperConfig.NetworkConfig memory networkConfig = helperConfig.getSepoliaEthConfig();
 
-        assert(
-            helperConfig.getConfigByChainId(ETH_SEPOLIA_CHAIN_ID).account ==
-                networkConfig.account
-        );
+        assert(helperConfig.getConfigByChainId(ETH_SEPOLIA_CHAIN_ID).account == networkConfig.account);
     }
 
     function testGetConfigByChainIdInvalidChainId() public {
